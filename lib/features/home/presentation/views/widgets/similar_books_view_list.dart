@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'custom_book_image.dart';
 
-class FeaturedBooksListView extends StatelessWidget {
-  const FeaturedBooksListView({super.key});
+class SimilarBooksListView extends StatelessWidget {
+  const SimilarBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: height * 0.33,
+      height: height * 0.16,
       child: ListView.builder(
         itemCount: 10,
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: EdgeInsets.zero,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 5.0),
           child: CustomBookImage(),
         ),
       ),
