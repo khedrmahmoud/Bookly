@@ -20,7 +20,38 @@ class HomeViewBody extends StatelessWidget {
           Text(
             "Bset Seller",
             style: Styles.titleMedium,
-          )
+          ),
+          BestSellerListViewItem(),
+        ],
+      ),
+    );
+  }
+}
+
+class BestSellerListViewItem extends StatelessWidget {
+  const BestSellerListViewItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 125,
+      child: Row(
+        children: [
+          AspectRatio(
+            aspectRatio: 2.5 / 4,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 12),
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: NetworkImage(
+                      'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+          const Column(),
         ],
       ),
     );

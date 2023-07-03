@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
@@ -64,17 +62,17 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void initAnimationTimers() {
-    Timer(const Duration(milliseconds: 400), () {
+    Future.delayed(const Duration(milliseconds: 400), () {
       setState(() {
         _a = true;
       });
     });
-    Timer(const Duration(milliseconds: 1700), () {
+    Future.delayed(const Duration(milliseconds: 1700), () {
       setState(() {
         _e = true;
       });
     });
-    Timer(const Duration(milliseconds: 3400), () {
+    Future.delayed(const Duration(milliseconds: 3400), () {
       setState(() {
         _d = true;
       });
@@ -82,7 +80,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void navigateToHome() {
-    Timer(const Duration(milliseconds: 4950), () {
+    Future.delayed(const Duration(milliseconds: 4950), () {
       Get.to(() => const HomeView(),
           transition: Transition.zoom, duration: kTranstionDuration);
     });
