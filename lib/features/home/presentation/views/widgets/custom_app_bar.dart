@@ -14,11 +14,12 @@ class CustomAppBar extends StatelessWidget {
           AssetsData.logo,
           height: 25,
         ),
-        IconButton.outlined(
+        IconButton(
+            iconSize: 20,
+            padding: const EdgeInsets.all(0),
             onPressed: () {},
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
-              size: 19,
             ))
       ],
     );
