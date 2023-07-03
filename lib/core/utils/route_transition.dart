@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-abstract class FadeRoute {
+abstract class TransitionRoute {
   static Page fadeTransitionPage(context, state, Widget route) {
     return CustomTransitionPage<void>(
       key: state.pageKey,

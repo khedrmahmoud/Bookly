@@ -9,7 +9,7 @@ class SimilarBooksListView extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: height * 0.16,
+      height: height * 0.165,
       child: ListView.builder(
         itemCount: 10,
         padding: EdgeInsets.zero,
