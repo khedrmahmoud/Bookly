@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class FadeRoute {
-  static Page fadeTransitionPage(context, state, route) {
+  static Page fadeTransitionPage(context, state, Widget route) {
     return CustomTransitionPage<void>(
       key: state.pageKey,
       child: route,
-      transitionDuration: const Duration(milliseconds: 1200),
+      transitionDuration: const Duration(milliseconds: 1100),
       transitionsBuilder: (
         BuildContext context,
         Animation<double> animation,
