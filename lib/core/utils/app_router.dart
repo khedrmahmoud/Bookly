@@ -18,7 +18,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeView,
-        pageBuilder: (context, state) => TransitionRoute.fadeTransitionPage(
+        pageBuilder: (context, state) => TransitionRoute.sizeTransitionPage(
             context, state, const HomeView()),
       ),
       GoRoute(
