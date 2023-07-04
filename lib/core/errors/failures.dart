@@ -18,8 +18,11 @@ class ServerFailure extends Failure {
       case DioExceptionType.receiveTimeout:
         return ServerFailure("Receive timeout with ApiService");
       case DioExceptionType.badResponse:
-        return ServerFailure.fromResponse(
-            dioException.response!.statusCode!, dioException.response);
+        if (dioException.response != null) {
+          return ServerFailure.fromResponse(
+              dioException.response!.statusCode!, dioException.response!.data);
+        }
+        return ServerFailure("An error occurred");
       case DioExceptionType.cancel:
         return ServerFailure("Request to ApiService was canceled");
       case DioExceptionType.unknown:

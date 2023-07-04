@@ -13,16 +13,15 @@ class ApiService {
     String filter = '',
     String sorting = '',
     String subject = '',
-    String q = '',
+    required String q,
   }) async {
-    _dio.options.headers = {
-      'Content-Type': 'application/json',
+    Map<String, dynamic>? query = {
+      'q': q,
       'Filtering': filter,
       'Sorting': sorting,
       'subject': subject,
-      'q': q
     };
-    var respons = await _dio.get(endPoint);
+    var respons = await _dio.get(endPoint, queryParameters: query);
     return respons.data;
   }
 }
