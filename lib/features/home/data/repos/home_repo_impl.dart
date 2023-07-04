@@ -12,12 +12,13 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
-      var data = await ApiService.get(
-          endPoint: 'volumes?',
-          filter: 'free-ebooks',
-          sorting: 'newest',
-          subject: 'computer science',
-          q: 'computer science');
+      var data = await ApiService().get(
+        endPoint: 'volumes?',
+        filter: 'free-ebooks',
+        sorting: 'newest',
+        subject: 'computer science',
+        q: 'programing',
+      );
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
@@ -34,10 +35,10 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      var data = await ApiService.get(
+      var data = await ApiService().get(
           endPoint: 'volumes?',
           filter: 'free-ebooks',
-          subject: 'computer science',
+          // subject: 'programing',
           q: 'computer science');
       List<BookModel> books = [];
       for (var item in data['items']) {

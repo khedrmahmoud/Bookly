@@ -8,7 +8,7 @@ class ApiService {
     receiveDataWhenStatusError: true,
   ));
 
-  static Future<Map<String, dynamic>> get({
+  Future<Map<String, dynamic>> get({
     required String endPoint,
     String filter = '',
     String sorting = '',
