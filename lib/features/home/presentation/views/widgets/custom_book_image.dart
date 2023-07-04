@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -17,8 +18,10 @@ class CustomBookImage extends StatelessWidget {
               child: Shimmer.fromColors(
             baseColor: Colors.red,
             highlightColor: Colors.yellow,
-            child: Container(
-              height: 150,
+            child: LoadingAnimationWidget.twistingDots(
+              leftDotColor: const Color(0xFF1A1A3F),
+              rightDotColor: const Color(0xFFEA3799),
+              size: 30,
             ),
           )),
           fit: BoxFit.fill,
