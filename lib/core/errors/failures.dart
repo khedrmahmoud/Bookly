@@ -11,6 +11,8 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromDioError(DioException dioException) {
     switch (dioException.type) {
+      case DioExceptionType.connectionError:
+        return ServerFailure("There was a connection error");
       case DioExceptionType.connectionTimeout:
         return ServerFailure("Connection timeout with ApiService");
       case DioExceptionType.sendTimeout:
@@ -25,10 +27,10 @@ class ServerFailure extends Failure {
         return ServerFailure("An error occurred");
       case DioExceptionType.cancel:
         return ServerFailure("Request to ApiService was canceled");
+
       case DioExceptionType.unknown:
         return ServerFailure("An unknown error occurred");
-      case DioExceptionType.connectionError:
-        return ServerFailure("There was a connection error");
+
       case DioExceptionType.badCertificate:
         return ServerFailure("The server's certificate is invalid");
       default:

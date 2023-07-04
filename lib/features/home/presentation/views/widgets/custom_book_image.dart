@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:skeletons/skeletons.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CustomBookImage extends StatelessWidget {
   const CustomBookImage({super.key, required this.imageUrl});
@@ -13,12 +13,12 @@ class CustomBookImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
           imageUrl: imageUrl,
-          placeholder: (context, url) => const Center(
-              child: Skeleton(
-            isLoading: true,
-            skeleton: SkeletonAvatar(),
-            child: SizedBox(
-              height: 60,
+          placeholder: (context, url) => Center(
+              child: Shimmer.fromColors(
+            baseColor: Colors.red,
+            highlightColor: Colors.yellow,
+            child: Container(
+              height: 150,
             ),
           )),
           fit: BoxFit.fill,
