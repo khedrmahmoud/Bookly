@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class ApiService {
   ApiService();
-  static String _baseUrl = "https://www.googleapis.com/books/v1/";
+  static const String _baseUrl = "https://www.googleapis.com/books/v1/";
   static final Dio _dio = Dio(BaseOptions(
     baseUrl: _baseUrl,
     receiveDataWhenStatusError: true,
