@@ -15,7 +15,7 @@ class BookListViewItem extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        context.push(AppRouter.kBookDetailsView);
+        context.push(AppRouter.kBookDetailsView, extra: book);
       },
       child: SizedBox(
         height: 125,
