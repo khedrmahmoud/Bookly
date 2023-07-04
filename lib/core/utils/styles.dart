@@ -17,6 +17,7 @@ abstract class Styles {
   static TextStyle textStyleSp30 = GoogleFonts.spectral(
     fontSize: 30,
     fontWeight: FontWeight.bold,
+    wordSpacing: 1,
   );
 
   static const textStyle14 = TextStyle(

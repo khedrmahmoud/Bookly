@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,8 @@ class CustomBookImage extends StatelessWidget {
             ),
           )),
           fit: BoxFit.fill,
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          errorWidget: (context, url, error) =>
+              Image.asset(AssetsData.defaultBookCover),
         ),
       ),
     );

@@ -22,11 +22,11 @@ class _BookDetailsViewState extends State<BookDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.0),
-          child: BookDetailsViewBody(),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: BookDetailsViewBody(book: widget.book),
         ),
       ),
     );
