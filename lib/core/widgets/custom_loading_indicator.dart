@@ -8,6 +8,6 @@ class CustomLoadingIndicar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: LoadingAnimationWidget.dotsTriangle(
-            color: Colors.white.withOpacity(0.5), size: 40));
+            color: Colors.white.withOpacity(0.5), size: 50));
   }
 }
