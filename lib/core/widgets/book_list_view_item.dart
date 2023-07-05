@@ -1,11 +1,11 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/core/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'book_rating.dart';
+import '../../features/home/presentation/views/widgets/book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.book});
@@ -30,7 +30,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: width * .5,
                     child: Text(
-                      book.volumeInfo.title!,
+                      book.volumeInfo.title ?? 'No Title',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyleSp20,
@@ -38,23 +38,27 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    book.volumeInfo.authors!.first,
+                    book.volumeInfo.authors?.first ?? '',
                     style: Styles.textStyle14,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 3),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Free',
-                        style: Styles.textStyle20
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                      BookRating(
-                        count: book.volumeInfo.ratingsCount ?? 0,
-                        rating: book.volumeInfo.averageRating ?? 0,
-                      )
-                    ],
+                  Flexible(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          getPriceText(book),
+                          style: Styles.textStyle20
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        BookRating(
+                          count: book.volumeInfo.ratingsCount ?? 50,
+                          rating: book.volumeInfo.averageRating ?? 50,
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -63,5 +67,13 @@ class BookListViewItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String getPriceText(BookModel book) {
+    if (book.saleInfo!.saleability == "FOR_SALE") {
+      return "${book.saleInfo?.retailPrice?.amount?.toInt() ?? ''}${book.saleInfo?.retailPrice?.currencyCode ?? ""}";
+    } else {
+      return "";
+    }
   }
 }

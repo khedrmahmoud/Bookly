@@ -43,6 +43,7 @@ dependencies:
   shimmer: ^3.0.0
   loading_animation_widget: ^1.2.0+4
   url_launcher: ^6.1.11
+  # intl:
 
 dev_dependencies:
   flutter_lints: ^2.0.0

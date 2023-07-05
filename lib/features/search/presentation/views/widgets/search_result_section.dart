@@ -1,21 +1,20 @@
 import 'package:bookly/core/widgets/custom_errore_widget.dart';
 import 'package:bookly/core/widgets/custom_loading_indicator.dart';
-import 'package:bookly/features/home/presentation/view_model/newset_books_cubit/newset_books_cubit.dart';
+import 'package:bookly/core/widgets/book_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/widgets/book_list_view_item.dart';
+import '../../view_models/searched_books_cubit/searched_books_cubit.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({super.key});
+class SearchResultListView extends StatelessWidget {
+  const SearchResultListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewsetBooksCubit, NewsetBooksState>(
+    return BlocBuilder<SearchedBooksCubit, SearchedBooksState>(
       builder: (context, state) {
-        if (state is NewsetBooksSuccess) {
+        if (state is SearchedBooksSuccess) {
           return ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
             itemCount: state.books.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -24,10 +23,12 @@ class BestSellerListView extends StatelessWidget {
               ),
             ),
           );
-        } else if (state is NewsetBooksFailure) {
+        } else if (state is SearchedBooksFailure) {
           return CustomErrorWidget(errorMessage: state.message);
-        } else {
+        } else if (state is SearchedBooksLoading) {
           return const CustomLoadingIndicar();
+        } else {
+          return const CustomErrorWidget(errorMessage: "Empty List");
         }
       },
     );

@@ -1,8 +1,8 @@
-import 'package:bookly/core/widgets/custom_buttom.dart';
-import 'package:bookly/core/widgets/functions/launch_url.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/core/utils/common/colors.dart';
+import 'package:bookly/core/widgets/custom_button.dart';
+import 'package:bookly/core/utils/functions/launch_url.dart';
+import 'package:bookly/core/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BookActions extends StatelessWidget {
   const BookActions({super.key, required this.book});
@@ -26,7 +26,7 @@ class BookActions extends StatelessWidget {
               launchCustomUrl(context, book.volumeInfo.previewLink ?? '');
             },
             text: getPreviewText(book),
-            backgroundColor: const Color(0xffEF8262),
+            backgroundColor: ColorManager.orange,
             textColor: Colors.white,
             fontSize: 16,
             borderRadius:

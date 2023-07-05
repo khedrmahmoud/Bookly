@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/common/colors.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -29,8 +30,9 @@ class BookRating extends StatelessWidget {
         const SizedBox(width: 5),
         Text(
           '($count)',
-          style:
-              Styles.textStyle14.copyWith(color: Colors.white.withOpacity(0.5)),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: Styles.textStyle14.copyWith(color: ColorManager.wightOp5),
         ),
       ],
     );

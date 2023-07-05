@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
+import '../utils/common/colors.dart';
+
 class CustomLoadingIndicar extends StatelessWidget {
   const CustomLoadingIndicar({super.key});
 
@@ -8,6 +10,6 @@ class CustomLoadingIndicar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: LoadingAnimationWidget.dotsTriangle(
-            color: Colors.white.withOpacity(0.5), size: 50));
+            color: ColorManager.wightOp5, size: 50));
   }
 }
