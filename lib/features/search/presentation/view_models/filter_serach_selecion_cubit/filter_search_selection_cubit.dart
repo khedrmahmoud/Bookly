@@ -6,8 +6,14 @@ part 'filter_search_selection_state.dart';
 class FilterSearchSelectionCubit extends Cubit<FilterSearchSelectionState> {
   FilterSearchSelectionCubit() : super(FilterSearchSelectionInitial());
 
-  List<String> filters = ['full', 'partial', 'free books'];
-  List<String> sorting = ['newset'];
+  List<String> filters = [
+    'partial',
+    'full',
+    'free-ebooks',
+    'paid-ebooks',
+    'ebooks'
+  ];
+  List<String> sorting = ['relevance', 'newest'];
 
   void selectFilter(index) {
     emit(FilterSearchSelectionLoading());

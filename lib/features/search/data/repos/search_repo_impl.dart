@@ -17,6 +17,7 @@ class SearchRepoImpl implements SearchRepo {
         endPoint: 'volumes?',
         filter: filter,
         sorting: sort,
+        subject: q,
         q: q,
       );
       List<BookModel> books = [];

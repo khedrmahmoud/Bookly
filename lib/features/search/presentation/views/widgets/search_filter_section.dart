@@ -18,7 +18,7 @@ class SearchFilterSection extends StatelessWidget {
         return AnimatedCrossFade(
           excludeBottomFocus: false,
           firstChild: Container(
-            height: 160,
+            height: 200,
             width: double.infinity,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
