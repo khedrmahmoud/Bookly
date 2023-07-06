@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:dio/dio.dart';
 
 class ApiService {
@@ -19,9 +17,8 @@ class ApiService {
   }) async {
     Map<String, dynamic>? query = {
       'q': q,
-      if (!filter.isNull) 'filter': filter,
-      if (!sorting.isNull) 'orderBy': sorting,
-      'subject': subject,
+      if (filter != null) 'filter': filter,
+      if (sorting != null) 'orderBy': sorting,
     };
     var respons = await _dio.get(endPoint, queryParameters: query);
     return respons.data;
