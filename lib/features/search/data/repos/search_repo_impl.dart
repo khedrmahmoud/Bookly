@@ -17,8 +17,8 @@ class SearchRepoImpl implements SearchRepo {
       print(searchData.filter);
       var data = await ApiService.get(
         endPoint: 'volumes?',
-        filter: searchData.filter ?? '',
-        sorting: searchData.sort ?? '',
+        filter: searchData.filter ?? 'ebooks',
+        sorting: searchData.sort ?? 'newest',
         subject: searchData.q,
         q: searchData.q,
       );

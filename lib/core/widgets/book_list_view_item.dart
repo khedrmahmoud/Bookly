@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/presentation/views/widgets/book_rating.dart';
+import '../utils/functions/get_currency_symbol.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.book});
@@ -49,7 +50,7 @@ class BookListViewItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          getPriceText(book),
+                          getPriceText(book, context),
                           style: Styles.textStyle20
                               .copyWith(fontWeight: FontWeight.bold),
                         ),
@@ -69,11 +70,11 @@ class BookListViewItem extends StatelessWidget {
     );
   }
 
-  String getPriceText(BookModel book) {
+  String getPriceText(BookModel book, context) {
     if (book.saleInfo!.saleability == "FOR_SALE") {
-      return "${book.saleInfo?.retailPrice?.amount?.toInt() ?? ''}${book.saleInfo?.retailPrice?.currencyCode ?? ""}";
+      return "${book.saleInfo?.retailPrice?.amount?.toInt() ?? ''}${currency(context, book.saleInfo?.retailPrice?.currencyCode ?? "")}";
     } else {
-      return "";
+      return 'Unsalable';
     }
   }
 }

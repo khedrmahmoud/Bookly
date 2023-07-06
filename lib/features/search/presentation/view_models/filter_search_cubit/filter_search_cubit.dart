@@ -17,12 +17,12 @@ class FilterSearchCubit extends Cubit<FilterSearchState> {
 
   void selectFilter(int index, bool selected) {
     emit(FilterSearchSelectionLoading());
-    emit(FilterSearchFiltersSelction(selected ? filters[index] : ''));
+    emit(FilterSearchFiltersSelction(selected ? filters[index] : null));
   }
 
   void selectSorting(int index, bool selected) {
     emit(FilterSearchSelectionLoading());
-    emit(FilterSearchSortingSelction(selected ? sorting[index] : ''));
+    emit(FilterSearchSortingSelction(selected ? sorting[index] : null));
   }
 
   void changeFilterSearchState(bool isClosed) {

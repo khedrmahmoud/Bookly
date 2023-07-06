@@ -16,11 +16,11 @@ class FilterSearchClose extends FilterSearchState {}
 class FilterSearchSelectionLoading extends FilterSearchState {}
 
 class FilterSearchFiltersSelction extends FilterSearchState {
-  final String filter;
+  final String? filter;
   const FilterSearchFiltersSelction(this.filter);
 }
 
 class FilterSearchSortingSelction extends FilterSearchState {
-  final String sorting;
+  final String? sorting;
   const FilterSearchSortingSelction(this.sorting);
 }
