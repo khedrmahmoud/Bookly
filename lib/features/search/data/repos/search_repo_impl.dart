@@ -6,19 +6,21 @@ import 'package:bookly/core/utils/api_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
+import '../models/search_data_model.dart';
 import 'search_repo.dart';
 
 class SearchRepoImpl implements SearchRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchSearchedBooks(
-      {required String q, String filter = '', String sort = ''}) async {
+      {required SearchData searchData}) async {
     try {
+      print(searchData.filter);
       var data = await ApiService.get(
         endPoint: 'volumes?',
-        filter: filter,
-        sorting: sort,
-        subject: q,
-        q: q,
+        filter: searchData.filter ?? '',
+        sorting: searchData.sort ?? '',
+        subject: searchData.q,
+        q: searchData.q,
       );
       List<BookModel> books = [];
       for (var item in data['items']) {

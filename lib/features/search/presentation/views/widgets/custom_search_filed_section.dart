@@ -1,3 +1,4 @@
+import 'package:bookly/features/search/data/models/search_data_model.dart';
 import 'package:bookly/features/search/presentation/view_models/searched_books_cubit/searched_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,7 @@ class CustomSerachTextField extends StatelessWidget {
         textAlign: TextAlign.center,
         textAlignVertical: TextAlignVertical.center,
         onChanged: (value) {
-          context.read<SearchedBooksCubit>().q = value;
+          context.read<SearchedBooksCubit>().searchData = SearchData(q: value);
         },
         onSubmitted: (value) {
           context.read<SearchedBooksCubit>().searchAboutBook();

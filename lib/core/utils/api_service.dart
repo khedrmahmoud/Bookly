@@ -17,8 +17,8 @@ class ApiService {
   }) async {
     Map<String, dynamic>? query = {
       'q': q,
-      'Filtering': filter,
-      'Sorting': sorting,
+      'filter': filter,
+      'orderBy': sorting,
       'subject': subject,
     };
     var respons = await _dio.get(endPoint, queryParameters: query);
