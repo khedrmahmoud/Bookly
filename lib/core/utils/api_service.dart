@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:dio/dio.dart';
 
 class ApiService {
@@ -10,15 +12,15 @@ class ApiService {
 
   static Future<Map<String, dynamic>> get({
     required String endPoint,
-    String filter = '',
-    String sorting = '',
+    String? filter,
+    String? sorting,
     String subject = '',
     required String q,
   }) async {
     Map<String, dynamic>? query = {
       'q': q,
-      'filter': filter,
-      'orderBy': sorting,
+      if (!filter.isNull) 'filter': filter,
+      if (!sorting.isNull) 'orderBy': sorting,
       'subject': subject,
     };
     var respons = await _dio.get(endPoint, queryParameters: query);

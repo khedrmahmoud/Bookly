@@ -4,6 +4,8 @@ import 'package:bookly/core/utils/functions/launch_url.dart';
 import 'package:bookly/core/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/functions/get_book_price.dart';
+
 class BookActions extends StatelessWidget {
   const BookActions({super.key, required this.book});
   final BookModel book;
@@ -13,17 +15,21 @@ class BookActions extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
               child: CustomButton(
-            text: '19.99\$',
+            onPressed: () {
+              launchCustomUrl(context, book.saleInfo?.buyLink ?? '');
+            },
+            text: getPriceText(book, context),
             backgroundColor: Colors.white,
             textColor: Colors.black,
-            borderRadius: BorderRadius.horizontal(left: Radius.circular(16)),
+            borderRadius:
+                const BorderRadius.horizontal(left: Radius.circular(16)),
           )),
           Expanded(
               child: CustomButton(
             onPressed: () {
-              launchCustomUrl(context, book.volumeInfo.previewLink ?? '');
+              launchCustomUrl(context, book.volumeInfo.infoLink ?? '');
             },
             text: getPreviewText(book),
             backgroundColor: ColorManager.orange,

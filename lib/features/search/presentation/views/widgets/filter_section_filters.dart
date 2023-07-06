@@ -16,12 +16,10 @@ class FiltersSearchSelection extends StatelessWidget {
     return BlocConsumer<FilterSearchCubit, FilterSearchState>(
         listener: (context, state) {
       if (state is FilterSearchFiltersSelction) {
-        print(state.filter);
         context.read<SearchedBooksCubit>().searchData = context
             .read<SearchedBooksCubit>()
             .searchData
             .copyWith(filterSelection: state.filter);
-        print(BlocProvider.of<SearchedBooksCubit>(context).searchData.q);
       }
     }, builder: (context, state) {
       var filterSearchSelection = context.read<FilterSearchCubit>();

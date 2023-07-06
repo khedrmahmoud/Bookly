@@ -14,11 +14,10 @@ class SearchRepoImpl implements SearchRepo {
   Future<Either<Failure, List<BookModel>>> fetchSearchedBooks(
       {required SearchData searchData}) async {
     try {
-      print(searchData.filter);
       var data = await ApiService.get(
         endPoint: 'volumes?',
-        filter: searchData.filter ?? 'ebooks',
-        sorting: searchData.sort ?? 'newest',
+        filter: searchData.filter,
+        sorting: searchData.sort,
         subject: searchData.q,
         q: searchData.q,
       );
