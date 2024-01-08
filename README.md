@@ -1,8 +1,10 @@
 # Bookly
 
+Bookly is a Flutter app that allows users to view books, search with filters, and read book descriptions. It uses the Dio library for network requests, BLoC for state management, and follows the MVVM architecture.
+
 ## Features:
 
-- Comprehensive book catalog
+- View a list of books
 - Refined search and filtering capabilities
 - Detailed book descriptions
 - Intuitive user interface
